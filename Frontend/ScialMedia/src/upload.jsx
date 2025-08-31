@@ -4,7 +4,7 @@ import { useDropzone } from "react-dropzone";
 import "./Upload.css"; // Make sure to create this CSS file
 
 // CHANGED FOR DEPLOYMENT: Switched back to using an environment variable.
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4040";
+const API_URL = "https://social-media-analyzer-wrvf.onrender.com";
 
 function Upload() {
   // --- STATE MANAGEMENT ---
