@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
 import "./Upload.css"; // Make sure to create this CSS file
-// const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4040";
+
+// CHANGED FOR DEPLOYMENT: Switched back to using an environment variable.
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4040";
 
 function Upload() {
   // --- STATE MANAGEMENT ---
@@ -18,7 +20,7 @@ function Upload() {
   const [pdfError, setPdfError] = useState("");
   const [analyzePdf, setAnalyzePdf] = useState(false);
   const [pdfAnalysis, setPdfAnalysis] = useState("");
-  const [isPdfAnalyzing, setIsPdfAnalyzing] = useState(false); // Still useful for UI feedback
+  const [isPdfAnalyzing, setIsPdfAnalyzing] = useState(false);
 
   // State for Image processing
   const [imageText, setImageText] = useState("");
@@ -26,7 +28,7 @@ function Upload() {
   const [imageError, setImageError] = useState("");
   const [analyzeImage, setAnalyzeImage] = useState(false);
   const [imageAnalysis, setImageAnalysis] = useState("");
-  const [isImageAnalyzing, setIsImageAnalyzing] = useState(false); // Still useful for UI feedback
+  const [isImageAnalyzing, setIsImageAnalyzing] = useState(false);
 
   // --- DROPZONE SETUP ---
   const { getRootProps: getPdfRoot, getInputProps: getPdfInput, isDragActive: isPdfActive } = useDropzone({
@@ -57,10 +59,10 @@ function Upload() {
     const formData = new FormData();
     formData.append("file", pdfFile);
     formData.append("scanned", pdfScanned);
-    formData.append("analyze", analyzePdf); // Send the analysis flag to the backend
+    formData.append("analyze", analyzePdf);
 
     axios
-      .post("http://localhost:4040/upload-pdf", formData)
+      .post(`${API_URL}/upload-pdf`, formData)
       .then((res) => {
         setPdfText(res.data.text || "No text could be extracted.");
         if (res.data.analysis) {
@@ -92,10 +94,10 @@ function Upload() {
 
     const formData = new FormData();
     formData.append("file", imageFile);
-    formData.append("analyze", analyzeImage); // Send the analysis flag to the backend
+    formData.append("analyze", analyzeImage);
 
     axios
-      .post("http://localhost:4040/upload-image", formData)
+      .post(`${API_URL}/upload-image`, formData)
       .then((res) => {
         setImageText(res.data.text || "No text could be extracted.");
         if (res.data.analysis) {
