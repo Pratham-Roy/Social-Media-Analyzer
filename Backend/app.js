@@ -28,7 +28,7 @@ const app = express();
 
 // CHANGED: Using a more robust CORS configuration with a whitelist
 const whitelist = [
-    'https://social-media-analyzer-frontend-wrvf.onrender.com', 
+    'https://social-media-analyzer-frontend-wva8.onrender.com', 
     'http://localhost:3000', // For local development
     'http://localhost:5173'  // Default for Vite dev server
 ];
