@@ -29,6 +29,8 @@ const corsOptions = {
   origin: 'https://social-media-analyzer-frontend-wrvf.onrender.com', // Your live frontend URL
   optionsSuccessStatus: 200
 };
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 const uploadDir = path.join(__dirname, "uploads");
