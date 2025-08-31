@@ -1,0 +1,222 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap');
+
+/* --- Main Body & Animated Background --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #f0f0f0;
+  background: linear-gradient(-45deg, #4b0082, #00008b, #4682b4, #8a2be2);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Keyframe animation for the background */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Main Container --- */
+.uploader-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* --- Uploader Card (Glassmorphism Effect) --- */
+.uploader-block {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2.5rem;
+  flex: 1;
+  min-width: 320px;
+  max-width: 500px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.uploader-block:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Calligraphy Title --- */
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  color: #e6e6fa; /* Lavender */
+  text-shadow: 0 0 10px rgba(230, 230, 250, 0.7);
+}
+
+/* --- Dropzone Styling --- */
+.dropzone {
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dropzone:hover, .dropzone--active {
+  border-color: #e6e6fa;
+  background-color: rgba(138, 43, 226, 0.3); /* BlueViolet with transparency */
+}
+
+.dropzone__hint {
+  margin: 0;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Controls & Checkboxes --- */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 0.75rem;
+  accent-color: #9370db; /* MediumPurple */
+}
+
+/* --- Violet Button Styling --- */
+.btn {
+  background: linear-gradient(45deg, #8a2be2, #9370db);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 1rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(147, 112, 219, 0.5);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Results & Notices --- */
+.loading-notice, .error-notice {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.loading-notice {
+  background: rgba(70, 130, 180, 0.3); /* SteelBlue with transparency */
+}
+
+.error-notice {
+  background: rgba(220, 20, 60, 0.4); /* Crimson with transparency */
+  color: white;
+  font-weight: 600;
+}
+
+.result-wrapper {
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+  border-radius: 15px;
+}
+
+.result-wrapper h3 {
+  margin-top: 0;
+  color: #e6e6fa;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.75rem;
+}
+
+.result-text {
+  width: 100%;
+  min-height: 150px;
+  max-height: 300px; /* Constrains the height */
+  overflow-y: auto;   /* Adds a scrollbar when content overflows */
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;      /* Adds internal spacing */
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  resize: vertical;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  outline: none;
+}
+
+/* --- Custom Scrollbar Styling --- */
+.result-text::-webkit-scrollbar {
+  width: 8px;
+}
+
+.result-text::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.result-text::-webkit-scrollbar-thumb {
+  background: #9370db; /* MediumPurple */
+  border-radius: 10px;
+}
+
+.result-text::-webkit-scrollbar-thumb:hover {
+  background: #8a2be2; /* BlueViolet */
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+  
+  .uploader-block {
+    padding: 1.5rem;
+    min-width: 90%;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
