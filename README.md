@@ -51,7 +51,7 @@ social-media-analyzer/
 │   ├── .gitignore
 │   ├── package.json
 │   ├── package-lock.json
-│   └── server.js         # Main Express server file
+│   └── app.js         # Main Express server file
 │
 └── frontend/
     ├── dist/
@@ -124,4 +124,5 @@ The frontend application will be available at `http://localhost:5173`.
 - **Continuous Deployment**: The services are linked to the GitHub repository's main branch. Any push to `main` automatically triggers a new deployment for the respective service.
 - **Environment Variables**: The GEMINI_API_KEY is securely stored in the backend service's environment variables on Render.
 - **CORS**: The backend is configured to only accept requests from the deployed frontend URL and localhost for development, ensuring secure communication between the services.
+
 
